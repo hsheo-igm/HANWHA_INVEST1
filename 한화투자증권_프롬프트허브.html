@@ -1,0 +1,2977 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>한화투자증권 AI 프롬프트 허브 — 대리 승진자 AI 활용 역량강화</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;900&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        /* 한화투자증권 브랜드 컬러 */
+        --bg: #f7f8fa;
+        --surface: #ffffff;
+        --surface-hover: #fff8f4;
+        --primary: #002366;        /* 한화 딥 네이비 */
+        --primary-light: #e8edf8;
+        --primary-dark: #001240;
+        --accent: #F26522;         /* 한화 오렌지 */
+        --accent-light: #fff3ec;
+        --accent-dark: #d4531a;
+        --gold: #C8962E;           /* 한화 골드 포인트 */
+        --text: #1a202c;
+        --text-secondary: #5a6478;
+        --border: #e2e8f0;
+        --border-accent: #f8d5bc;
+        --copied-bg: #fff3ec;
+        --copied-border: #F26522;
+        --shadow-sm: 0 1px 4px rgba(0, 35, 102, 0.07);
+        --shadow-md: 0 4px 20px rgba(0, 35, 102, 0.10);
+        --shadow-lg: 0 8px 40px rgba(0, 35, 102, 0.18);
+        --shadow-accent: 0 4px 20px rgba(242, 101, 34, 0.18);
+        --radius: 12px;
+        --radius-lg: 20px;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── HEADER ── */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 2px solid var(--accent);
+        box-shadow: var(--shadow-sm);
+      }
+      .header-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 64px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+      }
+      .logo-mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        border-radius: 10px;
+        font-family: "Outfit", sans-serif;
+        font-size: 18px;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: -1px;
+        flex-shrink: 0;
+      }
+      .logo-text {
+        display: flex;
+        flex-direction: column;
+      }
+      .logo-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.1;
+      }
+      .logo-sub {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--text-secondary);
+        line-height: 1.2;
+      }
+      .header-badge {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: var(--accent-light);
+        border: 1px solid var(--border-accent);
+        border-radius: 100px;
+        padding: 5px 14px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent-dark);
+      }
+
+      /* ── HERO ── */
+      .hero-wrap {
+        background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, #0a3a80 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-wrap::before {
+        content: "";
+        position: absolute;
+        top: -60px; right: -80px;
+        width: 400px; height: 400px;
+        background: radial-gradient(circle, rgba(242,101,34,0.18) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .hero-wrap::after {
+        content: "";
+        position: absolute;
+        bottom: -40px; left: 20%;
+        width: 300px; height: 300px;
+        background: radial-gradient(circle, rgba(200,150,46,0.12) 0%, transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .hero {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 52px 28px 44px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 7px 16px;
+        background: rgba(242,101,34,0.18);
+        border: 1px solid rgba(242,101,34,0.45);
+        color: #ffb38a;
+        border-radius: 100px;
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        letter-spacing: 0.3px;
+      }
+      .hero h1 {
+        font-family: "Outfit", "Noto Sans KR", sans-serif;
+        font-size: clamp(26px, 3.8vw, 40px);
+        font-weight: 900;
+        line-height: 1.25;
+        color: #fff;
+        margin-bottom: 14px;
+        letter-spacing: -0.5px;
+      }
+      .hero h1 .highlight {
+        background: linear-gradient(90deg, #F26522, #ffad5f);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .hero-desc {
+        font-size: 15px;
+        color: rgba(255,255,255,0.72);
+        max-width: 700px;
+        word-break: keep-all;
+        line-height: 1.8;
+      }
+      .hero-stats {
+        display: flex;
+        gap: 24px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 12px;
+        padding: 10px 18px;
+      }
+      .stat-icon { font-size: 20px; }
+      .stat-label { font-size: 12px; color: rgba(255,255,255,0.6); }
+      .stat-value { font-size: 15px; font-weight: 700; color: #fff; }
+
+      /* ── MODULE TABS NAV ── */
+      .content {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 36px 28px 100px;
+      }
+
+      /* ── SECTION CARD ── */
+      .section-card {
+        background: var(--surface);
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+        transition: box-shadow 0.3s;
+        margin-bottom: 28px;
+      }
+      .section-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+      .section-header {
+        padding: 22px 28px 18px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: linear-gradient(180deg, #fdfdff 0%, #f9fafc 100%);
+        border-bottom: 1px solid var(--border);
+      }
+      .section-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+      }
+      .section-icon.orange { background: linear-gradient(135deg, #fff0e8, #ffe0cc); }
+      .section-icon.navy  { background: linear-gradient(135deg, #e8edf8, #d0daee); }
+      .section-icon.gold  { background: linear-gradient(135deg, #fdf5e4, #f5e6c0); }
+      .section-icon.teal  { background: linear-gradient(135deg, #e0f4f1, #c8ece6); }
+      .section-icon.coming { background: linear-gradient(135deg, #f0f0f4, #e4e4ea); }
+
+      .section-header-text { flex: 1; }
+      .section-header-text h2 {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        letter-spacing: -0.2px;
+      }
+      .section-header-text p {
+        font-size: 13.5px;
+        color: var(--text-secondary);
+        margin-top: 3px;
+      }
+      .section-count {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        background: var(--accent-light);
+        border: 1px solid var(--border-accent);
+        color: var(--accent-dark);
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 100px;
+        flex-shrink: 0;
+      }
+
+      /* ── SUB TABS ── */
+      .tab-nav {
+        display: flex;
+        gap: 2px;
+        padding: 12px 20px 0;
+        border-bottom: 1px solid var(--border);
+        background: #fafbfc;
+      }
+      .tab-btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 9px 18px;
+        font-family: "Noto Sans KR", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        background: transparent;
+        border: none;
+        border-bottom: 2.5px solid transparent;
+        border-radius: 8px 8px 0 0;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-bottom: -1px;
+      }
+      .tab-btn:hover { color: var(--accent); background: var(--accent-light); }
+      .tab-btn.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+        background: #fff;
+      }
+      .tab-badge {
+        background: var(--accent-light);
+        color: var(--accent-dark);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 7px;
+        border-radius: 100px;
+      }
+      .tab-btn.active .tab-badge {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .tab-panel { display: none; }
+      .tab-panel.active { display: block; }
+
+      /* ── SECTION BODY ── */
+      .section-body {
+        padding: 18px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      /* ── PROMPT ITEM ── */
+      .prompt-item {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        padding: 15px 54px 15px 15px;
+        background: var(--bg);
+        border: 1.5px solid transparent;
+        border-radius: var(--radius);
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-size: 14.5px;
+        line-height: 1.75;
+        color: var(--text);
+        user-select: none;
+      }
+      .prompt-item:hover {
+        border-color: var(--border-accent);
+        background: var(--surface-hover);
+        transform: translateX(3px);
+        box-shadow: var(--shadow-accent);
+      }
+      .prompt-item.copied {
+        background: var(--copied-bg);
+        border-color: var(--copied-border);
+      }
+      .prompt-text {
+        flex: 1;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .prompt-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 30px;
+        height: 28px;
+        padding: 0 7px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #fff;
+        border-radius: 8px;
+        font-family: "Outfit", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-right: 13px;
+        margin-top: 3px;
+      }
+      .copy-indicator {
+        position: absolute;
+        right: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #b0b8cc;
+        pointer-events: none;
+        transition: color 0.2s;
+      }
+      .prompt-item:hover .copy-indicator { color: var(--accent); }
+      .prompt-item.copied .copy-indicator { color: var(--accent); }
+      .copy-indicator svg { width: 18px; height: 18px; }
+      .copy-indicator .check-icon { display: none; }
+      .prompt-item.copied .copy-indicator .copy-icon { display: none; }
+      .prompt-item.copied .copy-indicator .check-icon { display: block; }
+
+      /* ── GPTs ITEM (시스템 프롬프트) ── */
+      .gpt-item {
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--surface);
+        transition: box-shadow 0.2s, border-color 0.2s;
+      }
+      .gpt-item:hover { box-shadow: var(--shadow-md); border-color: var(--border-accent); }
+      .gpt-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 18px;
+        cursor: pointer;
+        user-select: none;
+        background: #fafbfc;
+        border-bottom: 1px solid transparent;
+        transition: background 0.2s;
+      }
+      .gpt-item.open .gpt-header {
+        border-bottom-color: var(--border);
+        background: var(--surface-hover);
+      }
+      .gpt-header-left { display: flex; align-items: center; gap: 12px; }
+      .gpt-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 28px;
+        height: 26px;
+        padding: 0 6px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 7px;
+        font-family: "Outfit", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .gpt-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--primary-dark);
+      }
+      .gpt-chip {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 9px;
+        border-radius: 100px;
+        background: var(--primary-light);
+        color: var(--primary);
+        flex-shrink: 0;
+      }
+      .gpt-arrow {
+        width: 20px;
+        height: 20px;
+        color: var(--text-secondary);
+        transition: transform 0.25s;
+        flex-shrink: 0;
+      }
+      .gpt-item.open .gpt-arrow { transform: rotate(180deg); color: var(--accent); }
+      .gpt-body {
+        display: none;
+        padding: 0;
+      }
+      .gpt-item.open .gpt-body { display: block; }
+      .gpt-content-wrap {
+        position: relative;
+        padding: 16px 50px 16px 18px;
+        background: #fdfbf9;
+      }
+      .gpt-content {
+        font-size: 13.5px;
+        line-height: 1.8;
+        color: var(--text);
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .gpt-copy-btn {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+        color: var(--text-secondary);
+        transition: all 0.2s;
+      }
+      .gpt-copy-btn:hover { background: var(--accent-light); border-color: var(--border-accent); color: var(--accent); }
+      .gpt-copy-btn svg { width: 16px; height: 16px; }
+
+      /* ── AI AGENT ITEM ── */
+      .agent-item {
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--surface);
+        transition: box-shadow 0.2s;
+      }
+      .agent-item:hover { box-shadow: var(--shadow-md); }
+      .agent-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 16px 18px;
+        background: linear-gradient(90deg, #edf2ff, #f0eafa);
+        border-bottom: 1px solid #d8def8;
+        cursor: pointer;
+        user-select: none;
+      }
+      .agent-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        color: #fff;
+        border-radius: 9px;
+        font-family: "Outfit", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+      .agent-title {
+        flex: 1;
+        font-size: 14.5px;
+        font-weight: 700;
+        color: #1e1b4b;
+      }
+      .agent-chip {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 3px 9px;
+        border-radius: 100px;
+        background: rgba(79,70,229,0.1);
+        color: #4f46e5;
+      }
+      .agent-body { display: none; }
+      .agent-item.open .agent-body { display: block; }
+      .agent-section {
+        border-top: 1px solid #e8eaf6;
+        padding: 16px 18px;
+      }
+      .agent-section-title {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: #4f46e5;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .agent-code {
+        background: #1e1b4b;
+        color: #e8e4ff;
+        border-radius: 10px;
+        padding: 16px 18px;
+        font-size: 13px;
+        line-height: 1.75;
+        white-space: pre-wrap;
+        word-break: break-word;
+        position: relative;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .agent-code:hover { background: #2a2560; }
+      .agent-code .copy-overlay {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.1);
+        border-radius: 7px;
+        color: rgba(255,255,255,0.6);
+        transition: all 0.2s;
+      }
+      .agent-code:hover .copy-overlay { background: rgba(255,255,255,0.18); color: #fff; }
+      .agent-code .copy-overlay svg { width: 15px; height: 15px; }
+      .agent-exec-prompt {
+        display: flex;
+        align-items: flex-start;
+        padding: 14px 48px 14px 14px;
+        background: #f5f7ff;
+        border: 1.5px solid transparent;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 14px;
+        line-height: 1.75;
+        color: var(--text);
+        user-select: none;
+        position: relative;
+      }
+      .agent-exec-prompt:hover {
+        border-color: #c7d0f8;
+        background: #eaefff;
+        transform: translateX(3px);
+      }
+      .agent-exec-prompt.copied { background: #e8ecff; border-color: #7c7ef0; }
+
+      /* ── COMING SOON ── */
+      .coming-soon-body {
+        padding: 48px 28px;
+        text-align: center;
+      }
+      .coming-soon-icon {
+        font-size: 42px;
+        margin-bottom: 16px;
+      }
+      .coming-soon-title {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 8px;
+      }
+      .coming-soon-desc {
+        font-size: 14px;
+        color: var(--text-secondary);
+      }
+      .coming-soon-badge {
+        display: inline-block;
+        margin-top: 18px;
+        padding: 6px 18px;
+        background: var(--accent-light);
+        border: 1px solid var(--border-accent);
+        color: var(--accent-dark);
+        font-size: 13px;
+        font-weight: 600;
+        border-radius: 100px;
+      }
+
+      /* ── TOAST ── */
+      .toast {
+        position: fixed;
+        bottom: 32px;
+        left: 50%;
+        transform: translateX(-50%) translateY(80px);
+        background: var(--primary-dark);
+        color: #fff;
+        padding: 13px 26px;
+        border-radius: 100px;
+        font-size: 14.5px;
+        font-weight: 500;
+        box-shadow: var(--shadow-lg);
+        opacity: 0;
+        transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        pointer-events: none;
+        border: 1px solid rgba(255,255,255,0.12);
+      }
+      .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+      /* ── PROMPT NOTE ── */
+      .prompt-container { display: flex; flex-direction: column; gap: 5px; }
+      .prompt-note {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--primary);
+        margin-left: 2px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .prompt-note .badge {
+        background: var(--primary-light);
+        color: var(--primary);
+        padding: 3px 8px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      /* ── DIVIDER ── */
+      .subsection-divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 18px 0 10px;
+        padding: 0 2px;
+      }
+      .subsection-divider span {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text-secondary);
+        white-space: nowrap;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+      }
+      .subsection-divider::before,
+      .subsection-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 768px) {
+        .header-inner { height: 56px; padding: 0 16px; }
+        .header-badge { display: none; }
+        .hero { padding: 36px 16px 32px; }
+        .content { padding: 24px 16px 60px; }
+        .section-header { padding: 18px 18px 14px; }
+        .section-body { padding: 14px; }
+        .prompt-item { padding: 13px 46px 13px 13px; font-size: 13.5px; }
+        .hero-stats { gap: 12px; }
+        .stat-item { padding: 8px 14px; }
+        .tab-btn { padding: 8px 14px; font-size: 12px; }
+      }
+
+      @keyframes copyPulse {
+        0%   { box-shadow: 0 0 0 0 rgba(242, 101, 34, 0.35); }
+        70%  { box-shadow: 0 0 0 8px rgba(242, 101, 34, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(242, 101, 34, 0); }
+      }
+      .prompt-item.just-copied { animation: copyPulse 0.6s ease; }
+      .agent-exec-prompt.just-copied { animation: copyPulse 0.6s ease; }
+    </style>
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header>
+      <div class="header-inner">
+        <a href="#" class="logo" onclick="return false;">
+          <img src="https://igm.or.kr/data/editor/2604/2a4a3d7c64a2dd963bec5d7f09b9fbea_1776865406_0454.png" alt="한화투자증권 로고" style="height:38px;width:auto;" />
+          <div class="logo-text">
+            <span class="logo-sub">AI 프롬프트 허브</span>
+          </div>
+        </a>
+        <div class="header-badge">🎯 대리 승진자 AI 활용 역량강화</div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero-wrap">
+      <div class="hero">
+        <div class="hero-badge">✦ 한화투자증권 × AI 교육 프롬프트</div>
+        <h1>대리 승진자 <span class="highlight">AI 활용</span> 역량강화<br/>실전 프롬프트 모음</h1>
+        <p class="hero-desc">
+          업무에 바로 활용할 수 있는 프롬프트 템플릿입니다.<br/>
+          프롬프트를 클릭하면 클립보드에 복사되어 ChatGPT, Copilot 등에서 바로 붙여넣기 할 수 있습니다.
+        </p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-icon">📦</span>
+            <div>
+              <div class="stat-label">총 모듈</div>
+              <div class="stat-value">4개 모듈</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">💬</span>
+            <div>
+              <div class="stat-label">실습 프롬프트</div>
+              <div class="stat-value">40개</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">🤖</span>
+            <div>
+              <div class="stat-label">GPTs 시스템 프롬프트</div>
+              <div class="stat-value">40개</div>
+            </div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-icon">⚡</span>
+            <div>
+              <div class="stat-label">AI Agent</div>
+              <div class="stat-value">9개</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <!-- ========== M01 ========== -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-icon orange">📊</div>
+          <div class="section-header-text">
+            <h2>M01. 데이터 분석, 왜 AI인가</h2>
+            <p>데이터 요약, 지표 추출, 이상치 탐지, 인사이트 도출까지</p>
+          </div>
+          <span class="section-count">🗂 프롬프트 10 + GPTs 10</span>
+        </div>
+
+        <!-- TAB NAV -->
+        <div class="tab-nav" data-section="m01">
+          <button class="tab-btn active" data-tab="m01-prompt">
+            💬 프롬프트 <span class="tab-badge">10</span>
+          </button>
+          <button class="tab-btn" data-tab="m01-gpt">
+            🤖 GPTs 시스템 프롬프트 <span class="tab-badge">10</span>
+          </button>
+        </div>
+
+        <!-- TAB: 프롬프트 -->
+        <div class="tab-panel active" id="m01-prompt">
+          <div class="section-body">
+            <div class="prompt-container">
+              <div class="prompt-note"><span class="badge">📎 파일 첨부 필요</span> branch_sales_q1.csv</div>
+
+              <div class="prompt-item" data-num="1" data-prompt="[목적] Q1 지점 실적을 요약해줘
+[데이터] 업로드한 branch_sales_q1.csv 파일 사용
+[출력형식] 지점별 매출 요약표 + 상위 3개 / 하위 3개 지점 표">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="2" data-prompt="[목적] 주요 KPI를 추출해줘
+[데이터] branch_sales_q1.csv
+[출력형식] 매출, 증감률, 기여도 기준 핵심 지표 5개 리스트">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="3" data-prompt="[목적] 전분기 대비 실적 변화를 분석해줘
+[데이터] branch_sales_q1.csv (증감률 포함)
+[출력형식] 증감률 TOP5 / BOTTOM5 표 + 차이 요약 3개">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="4" data-prompt="[목적] 상위 지점과 하위 지점의 차이를 분석해줘
+[데이터] branch_sales_q1.csv
+[출력형식] 비교 표 + 차이점 3가지">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="5" data-prompt="[목적] 데이터 결과를 해석해줘
+[데이터] branch_sales_q1.csv 분석 결과
+[출력형식] [사실]과 [추정]을 구분해서 3개씩 작성">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="6" data-prompt="[목적] 데이터에서 이상치를 찾아줘
+[데이터] branch_sales_q1.csv
+[출력형식] 이상 지점 + 이유 설명">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="7" data-prompt="[목적] 데이터에서 의미 있는 인사이트를 도출해줘
+[데이터] branch_sales_q1.csv
+[출력형식] 핵심 인사이트 3개 + 근거 수치 포함">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="8" data-prompt="[목적] 추가로 분석해야 할 질문을 만들어줘
+[데이터] 현재 분석 결과
+[출력형식] 추가 분석 질문 5개">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="9" data-prompt="[목적] 분석 결과를 임원 보고용으로 요약해줘
+[데이터] 분석 결과 내용
+[출력형식]
+1. 결론
+2. 핵심 지표
+3. 원인
+4. 권고
+5. Next Step">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="10" data-prompt="[목적] 기존 데이터 분석 업무를 AI 기반으로 개선해줘
+[상황] 현재 엑셀로 수작업 분석 후 보고서 작성
+[출력형식] AS-IS / TO-BE / 기대 효과">
+                <span class="prompt-text"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: GPTs -->
+        <div class="tab-panel" id="m01-gpt">
+          <div class="section-body">
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">1</span>
+                  <span class="gpt-title">기본 데이터 요약 GPT</span>
+                </div>
+                <span class="gpt-chip">금융 데이터 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 금융 데이터 분석 전문가다.
+
+상황
+사용자는 지점 실적 데이터를 업로드했고, 전체 현황을 빠르게 파악하고 싶어한다.
+
+지침
+- 업로드된 파일의 컬럼 구조를 먼저 확인한다
+- 지점별 매출, 증감률, 기여도를 중심으로 요약한다
+- 상위 3개 지점과 하위 3개 지점을 반드시 구분한다
+- 추측하지 말고 데이터에 있는 내용만 설명한다
+
+출력형식
+[데이터 개요]
+[지점별 요약표]
+[상위 3개 지점]
+[하위 3개 지점]
+[핵심 요약 3줄]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">2</span>
+                  <span class="gpt-title">핵심 지표 추출 GPT</span>
+                </div>
+                <span class="gpt-chip">KPI 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 KPI 분석 전문가다.
+
+상황
+사용자는 업로드한 지점 데이터에서 가장 중요한 성과 지표만 뽑아내고 싶어한다.
+
+지침
+- 매출, 증감률, 기여도 등 핵심 지표를 우선 확인한다
+- 수치가 큰 항목과 변화폭이 큰 항목을 함께 본다
+- 숫자를 그대로 제시하고, 의미를 짧게 덧붙인다
+
+출력형식
+[핵심 KPI 5개]
+- 지표명
+- 수치
+- 해석 1문장</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">3</span>
+                  <span class="gpt-title">전분기 대비 증감 분석 GPT</span>
+                </div>
+                <span class="gpt-chip">전분기 비교 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 전분기 비교 분석 전문가다.
+
+상황
+사용자는 전분기 대비 실적이 어떻게 변했는지 확인하고 싶어한다.
+
+지침
+- 증감률 기준으로 TOP5와 BOTTOM5를 구분한다
+- 증가 그룹과 감소 그룹의 특징을 비교한다
+- 숫자 중심으로 설명하고, 과도한 해석은 하지 않는다
+
+출력형식
+[증감률 TOP5]
+[증감률 BOTTOM5]
+[차이 요약 3가지]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">4</span>
+                  <span class="gpt-title">상위 vs 하위 지점 비교 GPT</span>
+                </div>
+                <span class="gpt-chip">성과 비교 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 성과 비교 분석 전문가다.
+
+상황
+사용자는 상위 지점과 하위 지점의 차이를 알고 싶어한다.
+
+지침
+- 매출, 증감률, 기여도 기준으로 비교한다
+- 공통점과 차이점을 3가지 이상 정리한다
+- 데이터에 없는 원인은 단정하지 않는다
+
+출력형식
+[비교 표]
+[공통점]
+[차이점]
+[추가 확인 필요 항목]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">5</span>
+                  <span class="gpt-title">사실/추정 분리 해석 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 해석 전문가다.
+
+상황
+사용자는 분석 결과를 단순 숫자 나열이 아니라 의미 있게 이해하고 싶어한다.
+
+지침
+- 반드시 [사실]과 [추정]을 구분한다
+- [사실]은 데이터에 직접 나타난 정보만 쓴다
+- [추정]은 가능한 원인 가설만 제시하고, 검증 필요를 명시한다
+- 추정을 사실처럼 표현하지 않는다
+
+출력형식
+[사실]
+- 3개 이상
+
+[추정]
+- 3개 이상
+
+[추가 검증 필요 데이터]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">6</span>
+                  <span class="gpt-title">이상치 탐지 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 품질 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 품질 및 이상치 분석 전문가다.
+
+상황
+사용자는 데이터 안에서 비정상적이거나 눈에 띄는 지점을 찾고 싶어한다.
+
+지침
+- 평균 대비 과도하게 높거나 낮은 값을 찾는다
+- 증감률, 매출, 기여도 중 이상 패턴을 우선 확인한다
+- 이상치로 판단한 근거를 반드시 제시한다
+
+출력형식
+[이상치 목록]
+- 지점명
+- 항목
+- 수치
+- 이상치로 본 이유</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">7</span>
+                  <span class="gpt-title">인사이트 도출 GPT</span>
+                </div>
+                <span class="gpt-chip">비즈니스 인사이트 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 비즈니스 인사이트 전문가다.
+
+상황
+사용자는 숫자를 넘어 실무적으로 의미 있는 시사점을 얻고 싶어한다.
+
+지침
+- 단순 요약이 아니라 의미를 도출한다
+- 각 인사이트에는 근거 수치를 반드시 붙인다
+- 인사이트는 3개 이내로 압축해 명확하게 작성한다
+- 과장 표현 없이 실무적 시사점 중심으로 쓴다
+
+출력형식
+[핵심 인사이트 1]
+- 설명
+- 근거 수치
+
+[핵심 인사이트 2]
+- 설명
+- 근거 수치
+
+[핵심 인사이트 3]
+- 설명
+- 근거 수치</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">8</span>
+                  <span class="gpt-title">추가 분석 질문 생성 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 탐색 설계 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 탐색 설계 전문가다.
+
+상황
+사용자는 현재 분석 결과를 바탕으로 다음 단계 분석을 이어가고 싶어한다.
+
+지침
+- 현재 결과에서 부족한 정보가 무엇인지 본다
+- 추가로 확인해야 할 질문을 우선순위 순으로 제시한다
+- 질문은 구체적이고 실행 가능해야 한다
+
+출력형식
+[추가 분석 질문 5개]
+1.
+2.
+3.
+4.
+5.</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">9</span>
+                  <span class="gpt-title">임원 보고용 5줄 요약 GPT</span>
+                </div>
+                <span class="gpt-chip">임원 보고 요약 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 임원 보고 요약 전문가다.
+
+상황
+사용자는 분석 결과를 임원에게 짧고 명확하게 보고해야 한다.
+
+지침
+- 결론을 첫 줄에 쓴다
+- 핵심 지표를 반드시 포함한다
+- 원인과 권고는 짧고 명확하게 쓴다
+- 마지막 줄에는 Next Step을 제시한다
+- 5줄 구조를 유지한다
+
+출력형식
+1. 결론
+2. 핵심 지표
+3. 원인 요약
+4. 권고안
+5. Next Step</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">10</span>
+                  <span class="gpt-title">업무 자동화 재설계 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 업무 혁신 컨설턴트</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 업무 혁신 컨설턴트다.
+
+상황
+사용자는 현재 엑셀로 수작업 분석 후 보고서를 만드는 업무를 AI 기반으로 개선하고 싶어한다.
+
+지침
+- 현재 방식과 AI 활용 방식을 비교한다
+- 분석, 해석, 요약 단계별로 개선 포인트를 제시한다
+- 기대 효과는 시간 절감과 품질 향상 관점에서 설명한다
+- 현실적인 업무 흐름으로 제안한다
+
+출력형식
+[AS-IS]
+[TO-BE]
+[변화 포인트]
+[기대 효과]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!-- // M01 END -->
+
+
+      <!-- ========== M02 ========== -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-icon navy">🧠</div>
+          <div class="section-header-text">
+            <h2>M02. 역할형 사고와 GPTs</h2>
+            <p>데이터 읽기, 해석 중심 분석, GPTs 설계 및 AI Agent 활용</p>
+          </div>
+          <span class="section-count">🗂 프롬프트 10 + GPTs 10 + Agent 3</span>
+        </div>
+
+        <!-- TAB NAV -->
+        <div class="tab-nav" data-section="m02">
+          <button class="tab-btn active" data-tab="m02-prompt">
+            💬 프롬프트 <span class="tab-badge">10</span>
+          </button>
+          <button class="tab-btn" data-tab="m02-gpt">
+            🤖 GPTs 시스템 프롬프트 <span class="tab-badge">10</span>
+          </button>
+          <button class="tab-btn" data-tab="m02-agent">
+            ⚡ AI Agent <span class="tab-badge">3</span>
+          </button>
+        </div>
+
+        <!-- TAB: 프롬프트 -->
+        <div class="tab-panel active" id="m02-prompt">
+          <div class="section-body">
+            <div class="prompt-container">
+              <div class="prompt-note"><span class="badge">📎 파일 첨부 필요</span> branch_sales_q1.csv</div>
+
+              <div class="prompt-item" data-num="1" data-prompt="[목적] 데이터의 전체 구조와 특징을 파악해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 컬럼 설명
+- 주요 지표 설명
+- 데이터 특징 3가지">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="2" data-prompt="[목적] 데이터에서 반복되는 패턴을 찾아줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 주요 패턴 3개
+- 각 패턴에 대한 설명">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="3" data-prompt="[목적] 상위 지점과 하위 지점의 공통 특징을 분석해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 상위 그룹 특징 3개
+- 하위 그룹 특징 3개
+- 차이점 3개">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="4" data-prompt="[목적] 데이터 변화의 원인을 추정해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- [사실] 3개
+- [추정] 3개
+- 추가 확인 필요 데이터 2개">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="5" data-prompt="[목적] 증감률 기준으로 데이터 의미를 해석해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 증가 지점 특징
+- 감소 지점 특징
+- 주요 시사점 3개">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="6" data-prompt="[목적] 일반적인 흐름에서 벗어난 데이터를 찾아줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 이상 지점 3개
+- 이상 이유 설명">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="7" data-prompt="[목적] 데이터를 그룹별로 나눠서 해석해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 그룹 기준 정의
+- 그룹별 특징
+- 그룹 간 차이">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="8" data-prompt="[목적] 지표 간 관계를 분석해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 주요 변수 간 관계 3개
+- 관계에 대한 해석">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="9" data-prompt="[목적] 데이터 기반으로 중요한 질문을 만들어줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 핵심 질문 5개
+- 질문의 의미">
+                <span class="prompt-text"></span>
+              </div>
+
+              <div class="prompt-item" data-num="10" data-prompt="[목적] 데이터를 종합적으로 해석해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 핵심 해석 3개
+- 가장 중요한 인사이트 1개">
+                <span class="prompt-text"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: GPTs -->
+        <div class="tab-panel" id="m02-gpt">
+          <div class="section-body">
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">1</span>
+                  <span class="gpt-title">데이터 구조 파악 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 구조 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 구조 해석 전문가다.
+
+상황
+사용자는 업로드한 데이터 파일이 어떤 구조로 이루어져 있는지 빠르게 이해하고 싶어한다.
+
+지침
+- 파일의 컬럼명과 의미를 먼저 정리한다
+- 어떤 지표가 핵심인지 우선순위를 제시한다
+- 데이터의 범위, 단위, 결측 여부 등 특징을 설명한다
+- 해석보다 구조 파악에 집중한다
+
+출력형식
+[컬럼 설명]
+[핵심 지표]
+[데이터 특징 3가지]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">2</span>
+                  <span class="gpt-title">핵심 패턴 도출 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 패턴 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 패턴 해석 전문가다.
+
+상황
+사용자는 데이터 안에서 반복되거나 눈에 띄는 흐름을 찾고 싶어한다.
+
+지침
+- 수치의 반복 패턴이나 공통 경향을 찾는다
+- 단순 요약이 아니라 "패턴" 중심으로 설명한다
+- 패턴은 3개 이내로 압축한다
+- 근거 수치를 함께 제시한다
+
+출력형식
+[패턴 1]
+[패턴 2]
+[패턴 3]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">3</span>
+                  <span class="gpt-title">상위/하위 그룹 비교 GPT</span>
+                </div>
+                <span class="gpt-chip">그룹 비교 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 그룹 비교 해석 전문가다.
+
+상황
+사용자는 성과가 높은 그룹과 낮은 그룹의 차이를 이해하고 싶어한다.
+
+지침
+- 상위 그룹과 하위 그룹을 구분한다
+- 공통점과 차이점을 각각 정리한다
+- 숫자 차이뿐 아니라 구조적 차이도 설명한다
+- 데이터에 없는 원인은 단정하지 않는다
+
+출력형식
+[상위 그룹 특징]
+[하위 그룹 특징]
+[차이점 3가지]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">4</span>
+                  <span class="gpt-title">사실/추정 분리 해석 GPT</span>
+                </div>
+                <span class="gpt-chip">사실·추정 구분 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 사실과 추정을 구분하는 데이터 해석 전문가다.
+
+상황
+사용자는 데이터 해석에서 팩트와 가설을 명확히 나누고 싶어한다.
+
+지침
+- [사실]은 데이터에 직접 나타난 내용만 작성한다
+- [추정]은 가능한 원인 가설만 제시한다
+- 추정에는 반드시 "검증 필요" 의미를 포함한다
+- 사실과 추정을 섞지 않는다
+
+출력형식
+[사실]
+- 3개 이상
+
+[추정]
+- 3개 이상
+
+[추가 검증 필요 데이터]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">5</span>
+                  <span class="gpt-title">증감률 해석 GPT</span>
+                </div>
+                <span class="gpt-chip">변화율 중심 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 변화율 중심 해석 전문가다.
+
+상황
+사용자는 전기 대비 증감이 무엇을 의미하는지 읽고 싶어한다.
+
+지침
+- 증가 그룹과 감소 그룹을 구분한다
+- 증감률의 크기뿐 아니라 의미를 설명한다
+- 변화폭이 큰 항목을 우선 본다
+- 시사점은 짧고 명확하게 정리한다
+
+출력형식
+[증가 그룹 특징]
+[감소 그룹 특징]
+[주요 시사점 3개]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">6</span>
+                  <span class="gpt-title">이상 패턴 탐지 GPT</span>
+                </div>
+                <span class="gpt-chip">이상 패턴 탐지 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 이상 패턴 탐지 전문가다.
+
+상황
+사용자는 일반적인 흐름과 다른 특이 케이스를 찾고 싶어한다.
+
+지침
+- 평균이나 다수 흐름과 다른 항목을 찾는다
+- 이상한 이유를 수치 기준으로 설명한다
+- 단순히 높고 낮음이 아니라 "왜 특이한지"를 말한다
+- 3개 이내로 압축한다
+
+출력형식
+[이상 패턴 1]
+[이상 패턴 2]
+[이상 패턴 3]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">7</span>
+                  <span class="gpt-title">세그먼트 해석 GPT</span>
+                </div>
+                <span class="gpt-chip">그룹·세그먼트 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 그룹/세그먼트 분석 전문가다.
+
+상황
+사용자는 데이터를 몇 개의 그룹으로 나누어 읽고 싶어한다.
+
+지침
+- 적절한 기준으로 그룹을 나눈다
+- 각 그룹의 특징을 설명한다
+- 그룹 간 차이를 비교한다
+- 그룹 기준은 명확히 제시한다
+
+출력형식
+[그룹 기준]
+[그룹별 특징]
+[그룹 간 차이]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">8</span>
+                  <span class="gpt-title">변수 간 관계 해석 GPT</span>
+                </div>
+                <span class="gpt-chip">변수 관계 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 변수 관계 분석 전문가다.
+
+상황
+사용자는 컬럼 간 어떤 관계가 있는지 이해하고 싶어한다.
+
+지침
+- 주요 변수 간 관계를 3개 이내로 정리한다
+- 관계가 있다고 보이는 이유를 수치 기반으로 설명한다
+- 인과관계로 단정하지 않는다
+- 관계 해석과 한계를 함께 제시한다
+
+출력형식
+[관계 1]
+[관계 2]
+[관계 3]
+[해석상 주의점]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">9</span>
+                  <span class="gpt-title">핵심 질문 도출 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 탐색 질문 설계 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 탐색 질문 설계 전문가다.
+
+상황
+사용자는 현재 데이터를 바탕으로 다음에 무엇을 질문해야 할지 알고 싶어한다.
+
+지침
+- 현재 분석 결과에서 부족한 점을 찾는다
+- 추가 분석을 위한 질문을 만든다
+- 질문은 구체적이고 실무적이어야 한다
+- 우선순위 높은 질문부터 제시한다
+
+출력형식
+[핵심 질문 5개]
+- 질문
+- 왜 중요한지</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left">
+                  <span class="gpt-num">10</span>
+                  <span class="gpt-title">종합 해석 GPT</span>
+                </div>
+                <span class="gpt-chip">데이터 종합 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body">
+                <div class="gpt-content-wrap">
+                  <div class="gpt-content">역할
+너는 데이터 종합 해석 전문가다.
+
+상황
+사용자는 개별 분석을 넘어 데이터 전체가 무엇을 말하는지 알고 싶어한다.
+
+지침
+- 데이터를 한 문장으로 요약하지 말고 구조적으로 설명한다
+- 핵심 해석 3개와 가장 중요한 인사이트 1개를 제시한다
+- 숫자 근거를 포함한다
+- 보고서에 바로 넣을 수 있도록 명확하게 작성한다
+
+출력형식
+[핵심 해석 1]
+[핵심 해석 2]
+[핵심 해석 3]
+[가장 중요한 인사이트]</div>
+                  <button class="gpt-copy-btn" title="복사">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TAB: AI Agent -->
+        <div class="tab-panel" id="m02-agent">
+          <div class="section-body">
+
+            <!-- Agent 1 -->
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">1</span>
+                <span class="agent-title">지점 실적 데이터 해석 토론 Agent</span>
+                <span class="agent-chip">3-Role Debate</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">🔧 GPTs Instructions (시스템 프롬프트)</div>
+                  <div class="agent-code" data-copy="true">너는 하나의 회의실에서 3명의 전문가를 운영한다.
+
+[역할]
+1. 데이터 분석가: 수치, 표, 사실 제시
+2. 인사이트 분석가: 의미 해석 및 원인 추정
+3. 리스크 관리자: 반론 및 위험 요소 검토
+
+[공통 규칙]
+- 모든 주장은 수치 근거 기반으로 작성
+- [사실]과 [추정]을 반드시 구분
+- 추정은 반드시 "검증 필요" 표시
+- 반론이 없으면 재검토
+
+[토론 구조]
+R1 데이터 분석가 → 수치 기반 사실 제시
+R2 인사이트 분석가 → 의미 해석
+R3 리스크 관리자 → 반론 및 리스크
+R4 합의 → 최종 결론 및 Action
+
+[출력 형식]
+[데이터 분석]
+[인사이트]
+[리스크]
+[최종 결론]
+[Action]
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 지점 실적 데이터를 해석하고 결론을 도출해줘
+[데이터] branch_sales_q1.csv
+[형식] 토론 구조(R1~R4)에 따라 작성">
+                    <span class="prompt-text"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agent 2 -->
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">2</span>
+                <span class="agent-title">데이터 해석 검증 토론 Agent</span>
+                <span class="agent-chip">3-Role Verification</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">🔧 GPTs Instructions (시스템 프롬프트)</div>
+                  <div class="agent-code" data-copy="true">너는 데이터 해석 검증 회의실을 운영한다.
+
+[역할]
+1. 분석가: 데이터 기반 주장 제시
+2. 검증가: 주장 검증 및 오류 탐지
+3. 반론가: 반대 시나리오 제시
+
+[공통 규칙]
+- 주장보다 근거를 먼저 제시
+- 수치 없는 주장은 무효 처리
+- 반론은 반드시 포함
+- 불확실한 내용은 [추정]으로 표시
+
+[토론 구조]
+R1 분석가 → 데이터 해석
+R2 검증가 → 오류 및 검증
+R3 반론가 → 반대 의견
+R4 합의 → 신뢰 가능한 결론 도출
+
+[출력 형식]
+[분석 결과]
+[검증]
+[반론]
+[최종 결론]
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 데이터 해석 결과의 신뢰도를 검증해줘
+[데이터] branch_sales_q1.csv 분석 결과
+[형식] 토론 구조(R1~R4)에 따라 작성">
+                    <span class="prompt-text"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Agent 3 -->
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">3</span>
+                <span class="agent-title">인사이트 도출 토론 Agent</span>
+                <span class="agent-chip">3-Role Insight</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">🔧 GPTs Instructions (시스템 프롬프트)</div>
+                  <div class="agent-code" data-copy="true">너는 데이터에서 의미 있는 인사이트를 도출하는 회의실을 운영한다.
+
+[역할]
+1. 데이터 분석가: 핵심 수치 및 패턴 제시
+2. 인사이트 도출가: 의미 및 시사점 도출
+3. 실행 검토자: 실제 적용 가능성 검토
+
+[공통 규칙]
+- 단순 요약 금지
+- 반드시 의미 도출
+- 실행 가능하지 않은 아이디어는 제외
+- 수치 근거 포함 필수
+
+[토론 구조]
+R1 데이터 분석가 → 핵심 데이터 제시
+R2 인사이트 도출가 → 의미 해석
+R3 실행 검토자 → 현실성 검토
+R4 합의 → 실행 가능한 인사이트
+
+[출력 형식]
+[핵심 데이터]
+[인사이트]
+[실행 가능성]
+[최종 결론]
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 데이터에서 실행 가능한 인사이트를 도출해줘
+[데이터] branch_sales_q1.csv
+[형식] 토론 구조(R1~R4)에 따라 작성">
+                    <span class="prompt-text"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- // M02 END -->
+
+
+      <!-- ========== M03 ========== -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-icon gold">📈</div>
+          <div class="section-header-text">
+            <h2>M03. 시각화와 차트 생성</h2>
+            <p>차트 유형 선택, 시각화 생성, 해석 문장 도출 및 보고용 변환</p>
+          </div>
+          <span class="section-count">🗂 프롬프트 10 + GPTs 10 + Agent 3</span>
+        </div>
+
+        <div class="tab-nav" data-section="m03">
+          <button class="tab-btn active" data-tab="m03-prompt">💬 프롬프트 <span class="tab-badge">10</span></button>
+          <button class="tab-btn" data-tab="m03-gpt">🤖 GPTs 시스템 프롬프트 <span class="tab-badge">10</span></button>
+          <button class="tab-btn" data-tab="m03-agent">⚡ AI Agent <span class="tab-badge">3</span></button>
+        </div>
+
+        <!-- TAB: 프롬프트 -->
+        <div class="tab-panel active" id="m03-prompt">
+          <div class="section-body">
+            <div class="prompt-container">
+              <div class="prompt-note"><span class="badge">📎 파일 첨부 필요</span> branch_sales_q1.csv</div>
+
+              <div class="prompt-item" data-num="1" data-prompt="[목적] 데이터 기반 차트를 생성해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 분기 매출 추이 Line 차트
+- 지점별 매출 비교 Bar 차트
+- 매출 분포 Boxplot"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="2" data-prompt="[목적] 데이터에 적합한 차트 유형을 추천해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- 질문 유형별 추천 차트
+- 추천 이유"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="3" data-prompt="[목적] 지점별 매출을 비교하는 차트를 생성해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- Bar 차트
+- 상위/하위 정렬"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="4" data-prompt="[목적] 시간 흐름에 따른 매출 변화를 보여줘
+[데이터] 분기별 매출 데이터
+[출력형식]
+- Line 차트
+- 주요 변화 표시"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="5" data-prompt="[목적] 데이터의 분포와 이상치를 확인해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+- Boxplot
+- 이상치 설명"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="6" data-prompt="[목적] 생성된 차트를 해석해줘
+[데이터] 생성된 차트 결과
+[출력형식]
+- 핵심 메시지 1문장
+- 해석 문장 3개"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="7" data-prompt="[목적] 차트 결과를 임원 보고용으로 요약해줘
+[데이터] 차트 분석 결과
+[출력형식]
+- 핵심 메시지 1문장
+- 3줄 요약 (수치 포함)"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="8" data-prompt="[목적] 차트 결과를 PPT용 문장으로 만들어줘
+[데이터] 차트 분석 결과
+[출력형식]
+- 슬라이드 제목 1개
+- 핵심 인사이트 3개"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="9" data-prompt="[목적] 차트 결과를 이메일 보고용으로 작성해줘
+[데이터] 차트 분석 결과
+[출력형식]
+- 결론 2줄
+- 주요 내용 3줄
+- Next Step"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="10" data-prompt="[목적] 데이터를 시각화하고 메시지까지 도출해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+1. 추천 차트
+2. 차트 생성
+3. 핵심 메시지 1문장
+4. 3줄 요약"><span class="prompt-text"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: GPTs -->
+        <div class="tab-panel" id="m03-gpt">
+          <div class="section-body">
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">1</span><span class="gpt-title">차트 생성 GPT</span></div>
+                <span class="gpt-chip">데이터 시각화 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 데이터 시각화 전문가다.
+
+상황
+사용자는 데이터를 빠르게 시각화하고 싶어한다.
+
+지침
+- 데이터 유형에 맞는 차트를 선택한다
+- Line / Bar / Boxplot 중 적절히 사용
+- 제목, 축, 범례를 명확히 작성한다
+- 시각적 장식 최소화
+
+출력형식
+- 차트 1~3개
+- 차트 설명 1줄</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">2</span><span class="gpt-title">차트 추천 GPT</span></div>
+                <span class="gpt-chip">시각화 설계 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 시각화 설계 전문가다.
+
+상황
+사용자는 어떤 차트를 써야 할지 모른다.
+
+지침
+- 질문 유형을 먼저 파악한다
+- 추이 → Line
+- 비교 → Bar
+- 분포 → Boxplot
+- 관계 → Scatter
+- 이유를 함께 설명한다
+
+출력형식
+[추천 차트]
+[추천 이유]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">3</span><span class="gpt-title">지점 비교 차트 GPT</span></div>
+                <span class="gpt-chip">성과 비교 시각화 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 성과 비교 시각화 전문가다.
+
+상황
+지점별 매출 비교 필요
+
+지침
+- Bar 차트 사용
+- 상위/하위 정렬
+- 핵심 지점 강조
+
+출력형식
+- 비교 차트
+- 상위/하위 요약</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">4</span><span class="gpt-title">추이 분석 GPT</span></div>
+                <span class="gpt-chip">트렌드 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 트렌드 분석 전문가다.
+
+상황
+시간 흐름에 따른 변화 분석
+
+지침
+- Line 차트 생성
+- 주요 변화 구간 강조
+- 증가/감소 흐름 설명
+
+출력형식
+- Line 차트
+- 변화 요약 3줄</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">5</span><span class="gpt-title">분포 분석 GPT</span></div>
+                <span class="gpt-chip">데이터 분포 분석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 데이터 분포 분석 전문가다.
+
+상황
+데이터의 퍼짐과 이상치 확인
+
+지침
+- Boxplot 사용
+- 이상치 식별
+- 평균 대비 설명
+
+출력형식
+- Boxplot
+- 이상치 설명</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">6</span><span class="gpt-title">차트 해석 GPT</span></div>
+                <span class="gpt-chip">데이터 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 데이터 해석 전문가다.
+
+상황
+차트 결과를 이해해야 한다.
+
+지침
+- 결론 중심으로 작성
+- 수치 근거 포함
+- 3문장 이내
+
+출력형식
+- 핵심 메시지 1문장
+- 해석 문장 3개</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">7</span><span class="gpt-title">임원 보고용 요약 GPT</span></div>
+                <span class="gpt-chip">임원 보고 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 임원 보고 전문가다.
+
+상황
+차트 결과를 보고용으로 요약해야 한다.
+
+지침
+- 결론 먼저 작성
+- 핵심 수치 포함
+- 불필요한 설명 제거
+
+출력형식
+- 핵심 메시지 1문장
+- 3줄 요약</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">8</span><span class="gpt-title">PPT 변환 GPT</span></div>
+                <span class="gpt-chip">발표 자료 작성 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 발표 자료 작성 전문가다.
+
+상황
+차트를 PPT로 옮겨야 한다.
+
+지침
+- 슬라이드 제목은 결론형
+- 인사이트 3개만 작성
+- 간결하게 표현
+
+출력형식
+[슬라이드 제목]
+[핵심 인사이트 3개]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">9</span><span class="gpt-title">이메일 보고 GPT</span></div>
+                <span class="gpt-chip">업무 브리핑 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 업무 브리핑 전문가다.
+
+상황
+차트 결과를 이메일로 공유
+
+지침
+- 결론 2줄 먼저 작성
+- 핵심 내용 3줄
+- Next Step 포함
+
+출력형식
+[결론]
+[핵심 내용]
+[Next Step]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">10</span><span class="gpt-title">시각화 통합 GPT</span></div>
+                <span class="gpt-chip">데이터→차트→메시지 통합 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 데이터 → 차트 → 메시지까지 통합하는 전문가다.
+
+상황
+사용자는 한 번에 결과를 보고 싶어한다.
+
+지침
+- 데이터 분석
+- 차트 생성
+- 해석 문장 생성
+- 보고용 요약까지 포함
+
+출력형식
+1. 추천 차트
+2. 차트 결과
+3. 핵심 메시지 1문장
+4. 3줄 요약</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TAB: AI Agent -->
+        <div class="tab-panel" id="m03-agent">
+          <div class="section-body">
+
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">1</span>
+                <span class="agent-title">지점별 매출 비교 차트 해석 토론</span>
+                <span class="agent-chip">Bar Chart 해석</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">📊 예시 상황 데이터</div>
+                  <div class="agent-code" data-copy="true">강남점  142억 (+12%)
+여의도점 128억 (+8%)
+부산점   56억 (-18%)
+대전점   48억 (-22%)
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">💡 토론 R1~R4 구조</div>
+                  <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R1 시각화 전문가</strong><br/>Bar 차트 생성 → 상위/하위 지점 간 매출 격차 확인 → 상위 2개 지점이 전체 매출 주도</div>
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R2 데이터 해석가</strong><br/>상위 지점 지속 성장 / 하위 지점 큰 폭 감소 → 매출 양극화 현상</div>
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R3 메시지 설계자</strong><br/>수도권 중심 매출 집중 / 지방 지점 실적 악화 → 구조적 불균형</div>
+                    <div style="background:#e8f0fe;border:1.5px solid #4f46e5;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#4f46e5;">R4 최종 결론</strong><br/>지점 간 매출 양극화 심화, 지방 지점 실적 개선 시급<br/><span style="color:#555;font-size:12px;">① 상위 지점이 전체 매출 성장 견인 ② 하위 지점 -20% 수준 감소 ③ 지역별 전략 재정비 필요</span></div>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 지점별 매출 차트를 기반으로 핵심 메시지를 도출해줘
+[데이터] branch_sales_q1.csv — 지점별 매출 및 증감률 포함
+[형식]
+R1 시각화 전문가 → Bar 차트 생성 및 수치 정리
+R2 데이터 해석가 → 상/하위 지점 특징 및 의미
+R3 메시지 설계자 → 구조적 시사점 도출
+R4 합의 → 핵심 메시지 1문장 + 임원 보고 3줄"><span class="prompt-text"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">2</span>
+                <span class="agent-title">매출 추이(Line 차트) 해석 토론</span>
+                <span class="agent-chip">Line Chart 해석</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">📊 예시 상황 데이터</div>
+                  <div class="agent-code" data-copy="true">Q1 → Q2 → Q3 매출 상승
+Q4 급격한 하락 발생
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">💡 토론 R1~R4 구조</div>
+                  <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R1 시각화 전문가</strong><br/>Line 차트 생성 → Q1~Q3 상승 후 Q4 급락 패턴 확인</div>
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R2 데이터 해석가</strong><br/>지속 성장 후 특정 시점 급락 → 외부 요인 또는 이벤트 가능성 / 변동성 증가</div>
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R3 메시지 설계자</strong><br/>성장세 유지 실패 / 리스크 관리 필요 / 단기 충격 발생</div>
+                    <div style="background:#e8f0fe;border:1.5px solid #4f46e5;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#4f46e5;">R4 최종 결론</strong><br/>성장 흐름 유지되었으나 Q4 급락으로 리스크 관리 필요성 증가<br/><span style="color:#555;font-size:12px;">① Q3까지 안정적 성장 유지 ② Q4 급락으로 변동성 확대 ③ 원인 분석 및 대응 전략 필요</span></div>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 시간 흐름에 따른 매출 변화를 분석하고 메시지를 도출해줘
+[데이터] 분기별 매출 데이터 (Q1~Q4)
+[형식]
+R1 시각화 전문가 → Line 차트 생성 및 흐름 파악
+R2 데이터 해석가 → 변화 의미 및 원인 추정
+R3 메시지 설계자 → 구조적 시사점
+R4 합의 → 핵심 메시지 1문장 + 임원 보고 3줄"><span class="prompt-text"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">3</span>
+                <span class="agent-title">데이터 분포(Boxplot) 해석 토론</span>
+                <span class="agent-chip">Boxplot 해석</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">📊 예시 상황 데이터</div>
+                  <div class="agent-code" data-copy="true">대부분 지점 매출: 80~120억
+일부 지점: 40억 이하 / 150억 이상 (이상치)
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">💡 토론 R1~R4 구조</div>
+                  <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R1 시각화 전문가</strong><br/>Boxplot 생성 → 중앙값과 이상치 확인</div>
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R2 데이터 해석가</strong><br/>대부분 안정적 범위 / 일부 지점 극단값 존재 / 성과 편차 확인</div>
+                    <div style="background:#f0f4ff;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#3b5bdb;">R3 메시지 설계자</strong><br/>평균보다 분포가 중요 / 일부 지점이 전체 성과 왜곡 / 균형 전략 필요</div>
+                    <div style="background:#e8f0fe;border:1.5px solid #4f46e5;border-radius:8px;padding:12px 14px;font-size:13px;"><strong style="color:#4f46e5;">R4 최종 결론</strong><br/>일부 지점의 극단적 성과로 전체 평균 왜곡 → 균형 전략 필요<br/><span style="color:#555;font-size:12px;">① 대부분 지점 안정적 수준 유지 ② 일부 지점이 성과 편차 확대 ③ 편차 완화 전략 필요</span></div>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 데이터 분포를 분석하고 이상치 기반 메시지를 도출해줘
+[데이터] branch_sales_q1.csv — 지점별 매출 분포
+[형식]
+R1 시각화 전문가 → Boxplot 생성 및 중앙값/이상치 확인
+R2 데이터 해석가 → 분포 특징 및 이상 지점 의미
+R3 메시지 설계자 → 구조적 시사점
+R4 합의 → 핵심 메시지 1문장 + 임원 보고 3줄"><span class="prompt-text"></span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- // M03 END -->
+
+
+      <!-- ========== M04 ========== -->
+      <div class="section-card">
+        <div class="section-header">
+          <div class="section-icon teal">📝</div>
+          <div class="section-header-text">
+            <h2>M04. 인사이트 보고서 완성</h2>
+            <p>Data→Insight→Action 구조로 1페이지 보고서 및 임원 커뮤니케이션 완성</p>
+          </div>
+          <span class="section-count">🗂 프롬프트 10 + GPTs 10 + Agent 3</span>
+        </div>
+
+        <div class="tab-nav" data-section="m04">
+          <button class="tab-btn active" data-tab="m04-prompt">💬 프롬프트 <span class="tab-badge">10</span></button>
+          <button class="tab-btn" data-tab="m04-gpt">🤖 GPTs 시스템 프롬프트 <span class="tab-badge">10</span></button>
+          <button class="tab-btn" data-tab="m04-agent">⚡ AI Agent <span class="tab-badge">3</span></button>
+        </div>
+
+        <!-- TAB: 프롬프트 -->
+        <div class="tab-panel active" id="m04-prompt">
+          <div class="section-body">
+            <div class="prompt-container">
+              <div class="prompt-note"><span class="badge">📎 파일 첨부 필요</span> branch_sales_q1.csv 분석 결과</div>
+
+              <div class="prompt-item" data-num="1" data-prompt="[목적] 데이터를 기반으로 1페이지 보고서를 작성해줘
+[데이터] branch_sales_q1.csv 분석 결과
+[출력형식]
+- [결론]
+- [데이터 근거표]
+- [인사이트]
+- [Action & Next Step]"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="2" data-prompt="[목적] 데이터를 인사이트로 변환해줘
+[데이터] 지점 실적 수치
+[출력형식]
+- [사실] 3개
+- [인사이트] 3개"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="3" data-prompt="[목적] 인사이트를 실행 방안으로 변환해줘
+[데이터] 인사이트 결과
+[출력형식]
+- 실행 전략 3개
+- 각 전략의 기대 효과"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="4" data-prompt="[목적] 데이터를 기반으로 전체 구조를 완성해줘
+[데이터] branch_sales_q1.csv
+[출력형식]
+1. Data (수치)
+2. Insight (해석)
+3. Action (실행안)"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="5" data-prompt="[목적] 임원 보고용으로 요약해줘
+[데이터] 분석 결과
+[출력형식]
+1. 결론
+2. 핵심 수치
+3. 원인
+4. 권고
+5. Next Step"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="6" data-prompt="[목적] 보고 내용을 PPT용으로 변환해줘
+[데이터] 분석 결과
+[출력형식]
+- 슬라이드 제목
+- 핵심 메시지 1문장
+- 인사이트 3개"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="7" data-prompt="[목적] 분석 결과를 이메일로 작성해줘
+[데이터] 분석 결과
+[출력형식]
+- 결론 2줄
+- 핵심 내용 3줄
+- Next Step"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="8" data-prompt="[목적] 결론 중심 보고서를 작성해줘
+[데이터] branch_sales_q1.csv 분석 결과
+[출력형식]
+- 결론 (1~2문장)
+- 근거 (수치)
+- Action"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="9" data-prompt="[목적] 실행 중심 보고서를 작성해줘
+[데이터] 분석 결과
+[출력형식]
+- Action 3개
+- 담당자
+- 기한"><span class="prompt-text"></span></div>
+
+              <div class="prompt-item" data-num="10" data-prompt="[목적] 보고서를 검수하고 개선해줘
+[데이터] 보고서 초안
+[출력형식]
+- 문제점
+- 개선 방향
+- 수정된 문장"><span class="prompt-text"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: GPTs -->
+        <div class="tab-panel" id="m04-gpt">
+          <div class="section-body">
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">1</span><span class="gpt-title">1페이지 보고서 생성 GPT</span></div>
+                <span class="gpt-chip">임원 보고서 작성 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 임원 보고서 작성 전문가다.
+
+상황
+사용자는 데이터 분석 결과를 바탕으로 1페이지 보고서를 작성하려 한다.
+
+지침
+- 결론을 가장 먼저 제시한다
+- 수치 근거를 반드시 포함한다
+- Action에는 담당자와 기한을 포함한다
+- [사실]과 [추정]을 구분한다
+
+출력형식
+[결론]
+[데이터 근거표]
+[인사이트]
+[Action & Next Step]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">2</span><span class="gpt-title">Data → Insight 변환 GPT</span></div>
+                <span class="gpt-chip">데이터 해석 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 데이터 해석 전문가다.
+
+상황
+사용자는 수치 데이터를 의미 있는 인사이트로 변환하고 싶어한다.
+
+지침
+- 데이터 기반 사실을 먼저 제시한다
+- 의미 있는 해석을 도출한다
+- 사실과 해석을 구분한다
+
+출력형식
+[사실]
+[인사이트]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">3</span><span class="gpt-title">Insight → Action GPT</span></div>
+                <span class="gpt-chip">전략 기획 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 전략 기획 전문가다.
+
+상황
+사용자는 인사이트를 실행 전략으로 전환하려 한다.
+
+지침
+- 실행 가능한 전략만 제시한다
+- 각 전략에 기대 효과를 포함한다
+- 구체적 행동 중심으로 작성한다
+
+출력형식
+[전략 1]
+[전략 2]
+[전략 3]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">4</span><span class="gpt-title">Data → Insight → Action 통합 GPT</span></div>
+                <span class="gpt-chip">데이터 기반 의사결정 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 데이터 기반 의사결정 전문가다.
+
+상황
+사용자는 전체 흐름을 한 번에 정리하고 싶어한다.
+
+지침
+- Data → Insight → Action 순서 유지
+- 수치 근거 포함
+- 논리 흐름 유지
+
+출력형식
+[Data]
+[Insight]
+[Action]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">5</span><span class="gpt-title">임원 보고 요약 GPT</span></div>
+                <span class="gpt-chip">임원 보고 요약 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 임원 보고 요약 전문가다.
+
+상황
+사용자는 분석 결과를 짧고 명확하게 보고해야 한다.
+
+지침
+- 결론을 첫 줄에 작성한다
+- 핵심 수치 포함
+- 5줄 구조 유지
+
+출력형식
+1. 결론
+2. 핵심 지표
+3. 원인
+4. 권고
+5. Next Step</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">6</span><span class="gpt-title">PPT 슬라이드 생성 GPT</span></div>
+                <span class="gpt-chip">발표 자료 작성 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 발표 자료 작성 전문가다.
+
+상황
+사용자는 데이터를 PPT로 전달해야 한다.
+
+지침
+- 슬라이드 제목은 결론형으로 작성한다
+- 핵심 인사이트 3개만 제시한다
+- 불필요한 설명 제거
+
+출력형식
+[슬라이드 제목]
+[핵심 메시지]
+[인사이트 3개]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">7</span><span class="gpt-title">이메일 보고 GPT</span></div>
+                <span class="gpt-chip">업무 브리핑 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 업무 브리핑 전문가다.
+
+상황
+사용자는 데이터를 이메일로 보고하려 한다.
+
+지침
+- 결론을 먼저 제시한다
+- 핵심 내용 간결하게 작성
+- Next Step 포함
+
+출력형식
+[결론]
+[핵심 내용]
+[Next Step]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">8</span><span class="gpt-title">결론 중심 보고서 GPT</span></div>
+                <span class="gpt-chip">결론 중심 보고 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 결론 중심 보고 전문가다.
+
+상황
+사용자는 장황한 보고서를 간결하게 바꾸고 싶어한다.
+
+지침
+- 결론 먼저 작성
+- 핵심 수치 포함
+- Action 포함
+
+출력형식
+[결론]
+[근거]
+[Action]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">9</span><span class="gpt-title">Action 계획 GPT</span></div>
+                <span class="gpt-chip">실행 계획 수립 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 실행 계획 수립 전문가다.
+
+상황
+사용자는 데이터 기반 실행 계획을 만들고 싶어한다.
+
+지침
+- Action은 구체적이어야 한다
+- 담당자와 기한 포함
+- 리스크 및 대응 방안 포함
+
+출력형식
+[Action]
+- 내용
+- 담당자
+- 기한
+- 리스크</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+            <div class="gpt-item">
+              <div class="gpt-header">
+                <div class="gpt-header-left"><span class="gpt-num">10</span><span class="gpt-title">보고서 검수 GPT</span></div>
+                <span class="gpt-chip">보고서 품질 검수 전문가</span>
+                <svg class="gpt-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </div>
+              <div class="gpt-body"><div class="gpt-content-wrap"><div class="gpt-content">역할
+너는 보고서 품질 검수 전문가다.
+
+상황
+사용자는 작성된 보고서를 개선하고 싶어한다.
+
+지침
+- 논리 흐름 점검
+- 수치 오류 확인
+- 불필요한 문장 제거
+
+출력형식
+[문제점]
+[개선 방향]
+[수정안]</div><button class="gpt-copy-btn" title="복사"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button></div></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- TAB: AI Agent -->
+        <div class="tab-panel" id="m04-agent">
+          <div class="section-body">
+
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">1</span>
+                <span class="agent-title">전략 도출 토론 GPT</span>
+                <span class="agent-chip">Data→Strategy</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">🔧 GPTs Instructions (시스템 프롬프트)</div>
+                  <div class="agent-code" data-copy="true">너는 전략 회의실을 운영한다.
+
+[역할]
+1. 데이터 분석가: 수치 근거 제시 / 데이터 기반 사실 정리
+2. 인사이트 도출가: 의미 해석 / 원인 및 시사점 도출
+3. 전략 기획자: 실행 전략 수립 / Action 제시
+
+[공통 규칙]
+- 모든 주장은 수치 근거 기반
+- [사실]과 [추정] 구분
+- Action은 반드시 실행 가능해야 함
+- 결론은 명확하게 1개로 도출
+
+[토론 구조]
+R1 데이터 분석가 → 핵심 수치
+R2 인사이트 도출가 → 의미 해석
+R3 전략 기획자 → 실행 전략
+R4 합의 → 최종 전략 결정
+
+[출력 형식]
+[데이터]
+[인사이트]
+[전략]
+[최종 결론]
+[Action (담당/기한)]
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 데이터를 기반으로 전략을 도출해줘
+[데이터] branch_sales_q1.csv 분석 결과
+[형식] 토론 구조(R1~R4)에 따라 작성"><span class="prompt-text"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">2</span>
+                <span class="agent-title">임원 보고서 생성 토론 GPT</span>
+                <span class="agent-chip">Executive Report</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">🔧 GPTs Instructions (시스템 프롬프트)</div>
+                  <div class="agent-code" data-copy="true">너는 임원 보고서를 작성하는 회의실을 운영한다.
+
+[역할]
+1. 데이터 분석가: 수치 및 근거 정리
+2. 인사이트 도출가: 의미 및 핵심 메시지 도출
+3. 보고 설계자: 임원용 보고 구조 작성
+
+[공통 규칙]
+- 결론을 가장 먼저 작성
+- 수치 근거 반드시 포함
+- 보고서는 간결하게 작성
+- 불필요한 설명 제거
+
+[토론 구조]
+R1 데이터 분석가 → 근거 정리
+R2 인사이트 도출가 → 핵심 메시지
+R3 보고 설계자 → 보고 구조 작성
+R4 합의 → 최종 보고서
+
+[출력 형식]
+[결론]
+[핵심 지표]
+[인사이트]
+[Action]
+[Next Step]
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 데이터를 기반으로 임원 보고서를 작성해줘
+[데이터] branch_sales_q1.csv 분석 결과
+[형식] 토론 구조(R1~R4)에 따라 작성"><span class="prompt-text"></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="agent-item">
+              <div class="agent-header">
+                <span class="agent-num">3</span>
+                <span class="agent-title">실행 계획 수립 토론 GPT</span>
+                <span class="agent-chip">Action Plan</span>
+              </div>
+              <div class="agent-body">
+                <div class="agent-section">
+                  <div class="agent-section-title">🔧 GPTs Instructions (시스템 프롬프트)</div>
+                  <div class="agent-code" data-copy="true">너는 실행 계획을 수립하는 전략 회의실을 운영한다.
+
+[역할]
+1. 데이터 분석가: 문제 상황 정의
+2. 전략가: 해결 방안 제시
+3. 실행 관리자: 실행 가능성 검토 및 계획 수립
+
+[공통 규칙]
+- 문제 → 해결 → 실행 순서 유지
+- 실행 계획은 구체적이어야 함
+- 담당자 및 기한 포함
+- 리스크 포함
+
+[토론 구조]
+R1 데이터 분석가 → 문제 정의
+R2 전략가 → 해결 전략
+R3 실행 관리자 → 실행 계획 검토
+R4 합의 → 실행안 확정
+
+[출력 형식]
+[문제 정의]
+[전략]
+[실행 계획]
+[리스크]
+[최종 Action]
+                    <span class="copy-overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></span>
+                  </div>
+                </div>
+                <div class="agent-section">
+                  <div class="agent-section-title">▶ 실행 프롬프트 (클릭하여 복사)</div>
+                  <div class="agent-exec-prompt" data-prompt="[목적] 데이터를 기반으로 실행 계획을 수립해줘
+[데이터] branch_sales_q1.csv 분석 결과
+[형식] 토론 구조(R1~R4)에 따라 작성"><span class="prompt-text"></span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+      <!-- // M04 END -->
+
+    </div><!-- // content -->
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      <span id="toastText">클립보드에 복사되었습니다!</span>
+    </div>
+
+    <script>
+      var copySvg = '<svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+      var checkSvg = '<svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+
+      // Init prompt items
+      document.querySelectorAll('.prompt-item').forEach(function(item) {
+        var num = document.createElement('span');
+        num.className = 'prompt-num';
+        num.textContent = item.getAttribute('data-num') || '-';
+        item.insertBefore(num, item.firstChild);
+        var textEl = item.querySelector('.prompt-text');
+        if (textEl && item.dataset.prompt) textEl.textContent = item.dataset.prompt;
+        var ci = document.createElement('span');
+        ci.className = 'copy-indicator';
+        ci.innerHTML = copySvg + checkSvg;
+        item.appendChild(ci);
+      });
+
+      // Init agent exec prompts
+      document.querySelectorAll('.agent-exec-prompt').forEach(function(item) {
+        var textEl = item.querySelector('.prompt-text');
+        if (textEl && item.dataset.prompt) textEl.textContent = item.dataset.prompt;
+        var ci = document.createElement('span');
+        ci.className = 'copy-indicator';
+        ci.style.cssText = 'position:absolute;right:12px;top:50%;transform:translateY(-50%);width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:#b0b8cc;';
+        ci.innerHTML = copySvg + checkSvg;
+        item.style.position = 'relative';
+        item.appendChild(ci);
+      });
+
+      // Copy helper
+      function fallbackCopy(text) {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;left:-9999px;top:-9999px';
+        document.body.appendChild(ta);
+        ta.focus(); ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch(e) {}
+        document.body.removeChild(ta);
+        return ok;
+      }
+      function doCopy(text, cb) {
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(cb).catch(function() {
+            if (fallbackCopy(text)) cb();
+          });
+        } else {
+          if (fallbackCopy(text)) cb();
+        }
+      }
+
+      // Toast
+      var toastTimer;
+      function showToast(msg) {
+        var toast = document.getElementById('toast');
+        document.getElementById('toastText').textContent = msg || '클립보드에 복사되었습니다!';
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2200);
+      }
+
+      // Click: prompt items
+      document.addEventListener('click', function(e) {
+        var item = e.target.closest('.prompt-item');
+        if (item) {
+          var text = item.getAttribute('data-prompt');
+          if (!text) return;
+          doCopy(text, function() {
+            item.classList.add('copied');
+            item.classList.remove('just-copied');
+            void item.offsetWidth;
+            item.classList.add('just-copied');
+            showToast('프롬프트가 복사되었습니다!');
+          });
+          return;
+        }
+
+        // agent exec prompt
+        var ep = e.target.closest('.agent-exec-prompt');
+        if (ep) {
+          var text = ep.getAttribute('data-prompt');
+          if (!text) return;
+          doCopy(text, function() {
+            ep.classList.add('copied');
+            ep.classList.remove('just-copied');
+            void ep.offsetWidth;
+            ep.classList.add('just-copied');
+            showToast('실행 프롬프트가 복사되었습니다!');
+          });
+          return;
+        }
+
+        // GPT header toggle
+        var gh = e.target.closest('.gpt-header');
+        if (gh) {
+          var gitem = gh.closest('.gpt-item');
+          if (gitem) gitem.classList.toggle('open');
+          return;
+        }
+
+        // GPT copy btn
+        var gcb = e.target.closest('.gpt-copy-btn');
+        if (gcb) {
+          e.stopPropagation();
+          var content = gcb.closest('.gpt-content-wrap').querySelector('.gpt-content');
+          if (content) {
+            doCopy(content.textContent.trim(), function() {
+              showToast('GPT 시스템 프롬프트가 복사되었습니다!');
+            });
+          }
+          return;
+        }
+
+        // Agent code block copy
+        var ac = e.target.closest('.agent-code');
+        if (ac && e.target.closest('.copy-overlay')) {
+          var text = ac.childNodes[0] ? ac.childNodes[0].textContent.trim() : '';
+          if (!text) {
+            // get all text except the copy-overlay
+            text = Array.from(ac.childNodes)
+              .filter(function(n) { return !n.classList || !n.classList.contains('copy-overlay'); })
+              .map(function(n) { return n.textContent; })
+              .join('').trim();
+          }
+          doCopy(text, function() { showToast('시스템 프롬프트가 복사되었습니다!'); });
+          return;
+        }
+
+        // Agent header toggle
+        var ah = e.target.closest('.agent-header');
+        if (ah) {
+          var aitem = ah.closest('.agent-item');
+          if (aitem) aitem.classList.toggle('open');
+          return;
+        }
+
+        // Tab switch
+        var tb = e.target.closest('.tab-btn');
+        if (tb) {
+          var tabId = tb.getAttribute('data-tab');
+          var nav = tb.closest('.tab-nav');
+          if (!nav) return;
+          nav.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+          tb.classList.add('active');
+          var card = nav.closest('.section-card');
+          if (!card) return;
+          card.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+          var panel = document.getElementById(tabId);
+          if (panel) panel.classList.add('active');
+        }
+      });
+    </script>
+  </body>
+</html>
